@@ -5,7 +5,7 @@ import styles from 'import/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <>
       <Head>
@@ -15,47 +15,21 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <header>
-        <nav className={styles.center}>
-          <img src='https://youtu.be/KjY94sAKLlw?t=2064' alt='' />
-          <a href='/'>Home</a>
+        <nav>
+          <a href=''>Home</a>
           <a href='/events'>Events</a>
           <a href='/about-us'>About Us</a>
         </nav>
       </header>
 
       <main className={`${styles.main}`}>
-        <a href=''>
-          <img src='' alt='' />
-          <h2>Events in London</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            minima, numquam architecto impedit obcaecati tenetur consectetur
-            labore, deserunt quae maxime corporis assumenda! Porro sapiente illo
-            alias placeat eos rem minus.
-          </p>
-        </a>
-
-        <a href=''>
-          <img src='' alt='' />
-          <h2>Events in San Francisco</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            minima, numquam architecto impedit obcaecati tenetur consectetur
-            labore, deserunt quae maxime corporis assumenda! Porro sapiente illo
-            alias placeat eos rem minus.
-          </p>
-        </a>
-
-        <a href=''>
-          <img src='' alt='' />
-          <h2>Events in Barcelone</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            minima, numquam architecto impedit obcaecati tenetur consectetur
-            labore, deserunt quae maxime corporis assumenda! Porro sapiente illo
-            alias placeat eos rem minus.
-          </p>
-        </a>
+        {data.map((ev) => (
+          <a key={ev.id} href={`events/${ev.id}`}>
+            <Image src={ev.image} alt={ev.title} width={300} height={300} />
+            <h2>{ev.title}</h2>
+            <p>{ev.description}</p>
+          </a>
+        ))}
       </main>
 
       <footer className={styles.footer}>
@@ -63,4 +37,14 @@ export default function Home() {
       </footer>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const { events_categories } = await import('../data/data.json');
+
+  return {
+    props: {
+      data: events_categories,
+    },
+  };
 }
