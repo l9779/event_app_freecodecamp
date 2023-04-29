@@ -1,19 +1,29 @@
+// https://youtu.be/KjY94sAKLlw?t=12087
 body
   background-color: #ffffff
 *
+  padding: 0
+  margin: 0
+  box-sizing: border-box
   font-family: Arial, Helvetica, sans-serif
+a
+  text-decoration: none
+  &:visited
+    color: #000
+
 header 
-  height: 300px
+  height: 200px
   background: linear-gradient(305deg, #dbfff3, transparent)
+  padding: 15px 30px
   color: #000
   >div
     width: 100%
     max-width: 1250px
     margin: auto
     display: flex
-    flex-direction: column
+    flex-direction: row
     justify-content: space-between
-  h1 
+  .title 
     width: 50%
     font-size: 40px
     text-transform: uppercase
@@ -69,4 +79,24 @@ footer
   .card
     position: relative
     h2
-      position: absolute
+      position: absolute 
+      width: 100%
+      top: 50%
+      text-align: center
+      font-size: 38px
+      color: #fff
+      text-transform: uppercase
+      text-shadow: 1px 1px 20px #000
+      
+.cat_events
+  width: 100%
+  .content
+    display: flex
+    flex-wrap: wrap
+    gap: 30px
+    width: 100%
+    justify-content: flex-start
+    .card
+      display: flex
+      flex-direction: column
+      width: 30%

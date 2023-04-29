@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import AllEvents from 'import/src/components/events/event-page';
+import AllEvents from 'import/src/components/events/EventPage';
 
 const EventPage = ({ data }) => {
   return <AllEvents data={data} />;

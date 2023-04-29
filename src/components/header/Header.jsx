@@ -22,7 +22,7 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-      <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+      <p className='title'>Lorem ipsum dolor sit amet consectetur.</p>
     </header>
   );
 };
