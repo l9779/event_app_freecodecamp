@@ -73,13 +73,23 @@ main {
   justify-content: center;
   align-content: center;
   align-items: center;
-  gap: 200px;
+  gap: 300px;
 }
 .home_body .card:nth-child(even) {
   direction: rtl;
 }
 .home_body .card .content {
   width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .home_body .card {
+    flex-direction: column;
+    gap: 0;
+  }
+  .home_body .image {
+    width: 80%;
+  }
 }
 
 footer {
