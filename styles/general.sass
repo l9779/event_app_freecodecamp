@@ -90,6 +90,11 @@ footer
       
 .cat_events
   width: 100%
+  h1
+    text-transform: uppercase
+    padding-bottom: 15px
+  .card
+    width: 30%
   .content
     display: flex
     flex-wrap: wrap
@@ -102,6 +107,9 @@ footer
       width: 30%
 
 .event_single_page
+  >img
+    height: auto
+    max-width: 100%
   .email_registration
     margin-top: 25px
     label
@@ -132,3 +140,11 @@ footer
       &:hover
         color: #dcfff3
         background: #333
+
+@media screen and (max-width: 900px) 
+  .cat_events
+    .card
+      img
+        max-height: 250px
+        width: 100%
+      

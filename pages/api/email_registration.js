@@ -2,12 +2,13 @@ import path from 'path';
 import fs from 'fs';
 
 function buildPath() {
-  return path.join(process.cwd(), 'data.json');
+  return path.join(process.cwd(), 'data', 'data.json');
 }
 
 function extractData(filePath) {
   const jsonData = fs.readFileSync(filePath);
-  return JSON.parse(jsonData);
+  const data = JSON.parse(jsonData);
+  return data;
 }
 
 export default function handler(req, res) {

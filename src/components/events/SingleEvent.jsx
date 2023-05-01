@@ -17,10 +17,11 @@ const SingleEvent = ({ data }) => {
 
     if (!emailValue.match(validRegex)) {
       setMessage('Please insert a valid email address.');
+      return;
     }
 
     try {
-      const response = await fetch('api/email_registration', {
+      const response = await fetch('/api/email_registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +30,6 @@ const SingleEvent = ({ data }) => {
       });
 
       if (!response.ok) throw new Error(response.status);
-
       const data = await response.json();
 
       console.log('POST', data);
@@ -37,7 +37,7 @@ const SingleEvent = ({ data }) => {
       setMessage(data.message);
       inputEmail.current.value = '';
     } catch (err) {
-      console.log('ERROR:', err);
+      console.log('ERROR:', err.message);
     }
   };
 
@@ -50,8 +50,8 @@ const SingleEvent = ({ data }) => {
         <label>Get Registered for this event!</label>
         <input
           ref={inputEmail}
-          id='email'
           type='email'
+          id='email'
           placeholder='Insert your email here.'
         />
         <button type='submit'>Submit</button>

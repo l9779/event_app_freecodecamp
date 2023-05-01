@@ -13,7 +13,7 @@ const CatEvent = ({ data, pageName }) => {
             href={`/events/${ev.city}/${ev.id}`}
             passHref
           >
-            <Image src={ev.image} alt={ev.title} width={300} height={300} />
+            <Image src={ev.image} alt={ev.title} width={320} height={320} />
             <h2>{ev.title}</h2>
             <p>{ev.description}</p>
           </Link>
