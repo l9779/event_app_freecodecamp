@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-//https://youtu.be/KjY94sAKLlw?t=15959
+
 const SingleEvent = ({ data }) => {
   const inputEmail = useRef();
   const router = useRouter();
@@ -37,7 +37,8 @@ const SingleEvent = ({ data }) => {
       setMessage(data.message);
       inputEmail.current.value = '';
     } catch (err) {
-      console.log('ERROR:', err.message);
+      setMessage(data.message);
+      console.log('ERROR:', err);
     }
   };
 

@@ -16,7 +16,6 @@ export default function handler(req, res) {
 
   const filePath = buildPath();
   const { events_categories, allEvents } = extractData(filePath);
-
   if (!allEvents) {
     return res.status(404).json({ message: 'Events data not found' });
   }
@@ -24,7 +23,7 @@ export default function handler(req, res) {
   if (method === 'POST') {
     const { email, eventId } = req.body;
 
-    if (!email | !email.include('@')) {
+    if (!email | !email.includes('@')) {
       res.status(422).json({ message: 'Invalid email address' });
       return;
     }
